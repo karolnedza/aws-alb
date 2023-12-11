@@ -119,7 +119,7 @@ resource "aws_security_group" "allow_tls" {
   }
 
  lifecycle {
-    prevent_destroy  = local.terminate
+    prevent_destroy  = true
   }
 }
 
