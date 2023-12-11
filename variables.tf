@@ -7,5 +7,5 @@ variable termination_enabled {
 
 
 locals {
-  terminate   = var.termination_enabled
+  terminate   = true
 }
