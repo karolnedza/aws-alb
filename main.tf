@@ -123,7 +123,7 @@ resource "aws_security_group" "allow_tls" {
 
 #####
 
-# resource "aws_wafv2_web_acl_association" "example" {
-#   resource_arn = aws_lb.test.arn
-#   web_acl_arn  = aws_wafv2_web_acl.example.arn
-# }
+resource "aws_wafv2_web_acl_association" "example" {
+   resource_arn = aws_lb.test.arn
+   web_acl_arn  = aws_wafv2_web_acl.example.arn
+}
