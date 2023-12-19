@@ -167,7 +167,7 @@ resource "aws_wafv2_web_acl" "example2" {
 
 
 resource "aws_lb" "test2" {
-  name               = "test-lb-tf"
+  name               = "another-alb"
   internal           = false
   load_balancer_type = "application"
   #security_groups    = [aws_security_group.lb_sg.id]
