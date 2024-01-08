@@ -155,7 +155,8 @@ resource "aws_lb" "public" {
   }
 
   tags = {
-    Environment = "production"
+    Environment = "production",
+    ApplicationAcronym =  "CDS"
   }
 }
 
@@ -176,7 +177,8 @@ resource "aws_lb" "private" {
   }
 
   tags = {
-    Environment = "production"
+    Environment = "production",
+    ApplicationAcronym =  "CDS"
   }
 }
 
