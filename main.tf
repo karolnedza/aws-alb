@@ -234,7 +234,7 @@ resource "aws_autoscaling_group" "single-az" {
     version = "$Latest"
   }
 
-   tags = {
+   tag = {
     Environment = "production",
     ApplicationAcronym =  "GDN"
   }
