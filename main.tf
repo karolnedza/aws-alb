@@ -236,6 +236,6 @@ resource "aws_autoscaling_group" "single-az" {
   tag {
     key = "ApplicationAcronym"
     value = "GDN"
+     propagate_at_launch = true
   }
 }
- 
