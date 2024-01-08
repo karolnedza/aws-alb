@@ -233,4 +233,9 @@ resource "aws_autoscaling_group" "single-az" {
     id      = aws_launch_template.foobar.id
     version = "$Latest"
   }
+
+   tags = {
+    Environment = "production",
+    ApplicationAcronym =  "GDN"
+  }
 }
