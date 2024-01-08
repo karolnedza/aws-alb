@@ -156,14 +156,14 @@ resource "aws_lb" "public" {
 
   tags = {
     Environment = "production",
-    ApplicationAcronym =  "CDS"
+    ApplicationAcronym =  "GDN"
   }
 }
 
 
 resource "aws_lb" "private" {
   name               = "private-alb"
-  internal           = true  ###### Private
+  internal           = false 
   load_balancer_type = "application"
   #security_groups    = [aws_security_group.lb_sg.id]
   subnets            = ["subnet-0bc22ae0320a85dfd", "subnet-047c5e018075c4d52"]
@@ -178,7 +178,7 @@ resource "aws_lb" "private" {
 
   tags = {
     Environment = "production",
-    ApplicationAcronym =  "CDS"
+    ApplicationAcronym =  "GDN"
   }
 }
 
