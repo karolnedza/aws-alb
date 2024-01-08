@@ -209,6 +209,7 @@ resource "aws_launch_template" "foobar" {
 }
 
 resource "aws_autoscaling_group" "mulit-az" {
+  name = "asg-multi-az"
   desired_capacity   = 1
   max_size           = 1
   min_size           = 1
@@ -222,6 +223,7 @@ resource "aws_autoscaling_group" "mulit-az" {
 
 
 resource "aws_autoscaling_group" "single-az" {
+  name = "asg-single-az"
   desired_capacity   = 1
   max_size           = 1
   min_size           = 1
