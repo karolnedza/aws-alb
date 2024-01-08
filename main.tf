@@ -208,11 +208,24 @@ resource "aws_launch_template" "foobar" {
  key_name = "ccisco"
 }
 
-resource "aws_autoscaling_group" "bar" {
+resource "aws_autoscaling_group" "mulit-az" {
   desired_capacity   = 1
   max_size           = 1
   min_size           = 1
-  vpc_zone_identifier = ["sg-098a4c5b1ab93f8d7"]
+  vpc_zone_identifier = ["subnet-0bc22ae0320a85dfd", "subnet-047c5e018075c4d52"]
+
+  launch_template {
+    id      = aws_launch_template.foobar.id
+    version = "$Latest"
+  }
+}
+
+
+resource "aws_autoscaling_group" "single-az" {
+  desired_capacity   = 1
+  max_size           = 1
+  min_size           = 1
+  vpc_zone_identifier = ["subnet-080bb524fac00a042"]
 
   launch_template {
     id      = aws_launch_template.foobar.id
