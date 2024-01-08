@@ -195,3 +195,28 @@ resource "aws_wafv2_web_acl_association" "example2" {
    resource_arn = aws_lb.private.arn
    web_acl_arn  = aws_wafv2_web_acl.example2.arn
 }
+
+
+
+####################################################################
+####################################################################
+
+resource "aws_launch_template" "foobar" {
+  name_prefix   = "foobar"
+  image_id      = "ami-07ce6ac5ac8a0ee6f"
+  instance_type = "t2.micro"
+ key_name = "ccisco"
+}
+
+resource "aws_autoscaling_group" "bar" {
+  availability_zones = ["us-east-1a"]
+  desired_capacity   = 1
+  max_size           = 1
+  min_size           = 1
+  vpc_zone_identifier = ["sg-098a4c5b1ab93f8d7"]
+
+  launch_template {
+    id      = aws_launch_template.foobar.id
+    version = "$Latest"
+  }
+}
