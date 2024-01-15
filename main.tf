@@ -222,20 +222,20 @@ resource "aws_autoscaling_group" "mulit-az" {
 }
 
 
-resource "aws_autoscaling_group" "single-az" {
-  name = "asg-single-az"
-  desired_capacity   = 1
-  max_size           = 1
-  min_size           = 1
-  vpc_zone_identifier = ["subnet-080bb524fac00a042"]
+# resource "aws_autoscaling_group" "single-az" {
+#   name = "asg-single-az"
+#   desired_capacity   = 1
+#   max_size           = 1
+#   min_size           = 1
+#   vpc_zone_identifier = ["subnet-080bb524fac00a042"]
 
-  launch_template {
-    id      = aws_launch_template.foobar.id
-    version = "$Latest"
-  }
-  tag {
-    key = "ApplicationAcronym"
-    value = "GDN"
-     propagate_at_launch = true
-  }
-}
+#   launch_template {
+#     id      = aws_launch_template.foobar.id
+#     version = "$Latest"
+#   }
+#   tag {
+#     key = "ApplicationAcronym"
+#     value = "GDN"
+#      propagate_at_launch = true
+#   }
+# }
