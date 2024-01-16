@@ -184,10 +184,10 @@ resource "aws_lb" "private" {
 
 #####
 
-# resource "aws_wafv2_web_acl_association" "example" {
-#    resource_arn = aws_lb.public.arn
-#    web_acl_arn  = aws_wafv2_web_acl.example.arn
-# }
+resource "aws_wafv2_web_acl_association" "example" {
+   resource_arn = aws_lb.public.arn
+   web_acl_arn  = aws_wafv2_web_acl.example.arn
+}
 
 
 
@@ -201,25 +201,25 @@ resource "aws_wafv2_web_acl_association" "example2" {
 ####################################################################
 ####################################################################
 
-resource "aws_launch_template" "foobar" {
-  name_prefix   = "foobar"
-  image_id      = "ami-07ce6ac5ac8a0ee6f"
-  instance_type = "t2.micro"
- key_name = "ccisco"
-}
+# resource "aws_launch_template" "foobar" {
+#   name_prefix   = "foobar"
+#   image_id      = "ami-07ce6ac5ac8a0ee6f"
+#   instance_type = "t2.micro"
+#  key_name = "ccisco"
+# }
 
-resource "aws_autoscaling_group" "mulit-az" {
-  name = "asg-multi-az"
-  desired_capacity   = 1
-  max_size           = 1
-  min_size           = 1
-  vpc_zone_identifier = ["subnet-0bc22ae0320a85dfd", "subnet-047c5e018075c4d52"]
+# resource "aws_autoscaling_group" "mulit-az" {
+#   name = "asg-multi-az"
+#   desired_capacity   = 1
+#   max_size           = 1
+#   min_size           = 1
+#   vpc_zone_identifier = ["subnet-0bc22ae0320a85dfd", "subnet-047c5e018075c4d52"]
 
-  launch_template {
-    id      = aws_launch_template.foobar.id
-    version = "$Latest"
-  }
-}
+#   launch_template {
+#     id      = aws_launch_template.foobar.id
+#     version = "$Latest"
+#   }
+# }
 
 
 # resource "aws_autoscaling_group" "single-az" {
